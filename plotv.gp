@@ -36,7 +36,7 @@ plot \
 'VsDC3.dat'every::1 using 1:($2/$1) with lines lw 2 title "VsDC3, 200mV",\
 'Keithley2182A.dat' every::1 using 1:($3/$1)  with lines lw 2 title "Keithley 2182A, 10mV",\
 'HP3458A.dat' every::1 using 1:($3/$1) with lines lw 2 title "Agilent 3458A, 100mV",\
-'NVM.dat' every::1 using 1:($2/$1) with lines lw 3 title "NMV",\
+'NVM.dat' every::1 using 1:($2/$1) with lines lw 3 title "NVM",\
 'Lakeshore480.dat' every::1 using 1:($2/$1) with lines lw 2 title "Lakeshore 480",\
 'PDI5025.dat' every::1 using 1:($2/$1) with lines lw 2 title "PDI5025, G=1000",\
 'ADS1232.dat' every::1 using 1:($2/$1) with lines lw 2 title "ADS1232REF, 40mV",\
