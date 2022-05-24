@@ -52,7 +52,7 @@ plot \
 'ADS1232.dat' every::1 with lines lw 2 title "ADS1232REF, 40mV",\
 'AD7195.dat' every::1 with lines lw 2 title "AD7195EBZ, 40mV",\
 'ADS1263.dat' using 1:2 every::1 with lines lw 5 title "ADS1263, 40mV",\
-'ADS1263.dat' using 1:3 every::1 with lines lw 5 title "7 x ADS1263, 40mV",\
+'ADS1263.dat' using 1:3 every::1 with lines lw 5 title "7 || ADS1263, 40mV",\
 En*sqrt(x*60/1000) lc rgb 'black' dt 2 notitle,\
 En*sqrt(x*1e3/1000) lc rgb 'black' dt 2 notitle,\
 En*sqrt(x*1e4/1000) lc rgb 'black' dt 2 notitle,\
@@ -69,5 +69,5 @@ plot \
 'LT1028.dat' with linespoints lw 1 title "LT1024",\
 'SSM2212.dat' with linespoints lw 1 title "SSM2212",\
 'ADA4528.dat' with linespoints lw 1 title "ADA4528",\
-'ADA4528x10.dat' with linespoints lw 1 title "10 x ADA4528"
+'ADA4528x10.dat' with linespoints lw 1 title "10 || ADA4528"
 
