@@ -3,6 +3,7 @@ set size square
 set output "integrators_v.png"
 
 #set colorsequence classic
+#set colorsequence podo
 
 set multiplot
 
@@ -12,7 +13,7 @@ set tmargin at screen 0.95
 set bmargin at screen 0.1
                          
 set logscale xy
-set key at 9e-3,9e-2 box title "Voltmeters"
+set key at 30e-3,9e-2 box title "Voltmeters"
 set format "10^{%T}"
 set grid xtics back ytics back mxtics back mytics back lc rgb 'black' lt 1, lc rgb 'gray' lt 1 
 
@@ -33,28 +34,32 @@ set label "10k{/Symbol W}=13nV/{/Symbol \326}Hz"  at 1.2e-6,5e-5/sqrt(10) rotate
 set label "100k{/Symbol W}=40nV/{/Symbol \326}Hz" at 1.2e-6,5e-5 rotate by -26.6 
 
 plot \
-'VsDC3.dat'every::1 using 1:($2/$1) with lines lw 2 title "VsDC3, 200mV",\
-'Keithley2182A.dat' every::1 using 1:($3/$1)  with lines lw 2 title "Keithley 2182A, 10mV",\
-'HP3458A.dat' every::1 using 1:($3/$1) with lines lw 2 title "Agilent 3458A, 100mV",\
-'NVM.dat' every::1 using 1:($2/$1) with lines lw 3 title "NVM",\
-'Lakeshore480.dat' every::1 using 1:($2/$1) with lines lw 2 title "Lakeshore 480",\
-'PDI5025.dat' every::1 using 1:($2/$1) with lines lw 2 title "PDI5025, G=1000",\
-'ADS1232.dat' every::1 using 1:($2/$1) with lines lw 2 title "ADS1232REF, 40mV",\
-'AD7195.dat' every::1 using 1:($2/$1) with lines lw 2 title "AD7195EBZ, 40mV",\
-'ADS1263.dat' every::1 using 1:($2/$1) with lines lw 5 title "ADS1263, 40mV",\
-'ADS1263.dat' every::1 using 1:($3/$1) with lines lw 5 title "7 || ADS1263, 40mV",\
-En*sqrt(1/x*60/1000) lc rgb 'black' dt 2 notitle,\
+'VsDC3.dat'             every::1 using 1:($2/$1) with lines lw 2 title "VsDC3, 200mV",\
+'Keithley2182A.dat'     every::1 using 1:($2/$1)  with lines lw 2 title "Keithley 2182A, 10mV",\
+'KeithleyDMM7510.dat'   every::1 using 1:($2/$1)  with lines lw 2 title "Keithley DMM7510, 100mV",\
+'HP3458A.dat'           every::1 using 1:($2/$1) with lines lw 2 title "Agilent 3458A, 100mV",\
+'V2-38.dat'             every::1 using 1:($2/$1) with lines lw 2 title "V2-38, 10uV",\
+'PDI5025.dat'           every::1 using 1:($2/$1) with lines lw 2 title "PDI5025, G=1000",\
+'Lakeshore480.dat'      every::1 using 1:($2/$1) with lines lw 2 title "Lakeshore 480",\
+'NVM.dat'               every::1 using 1:($2/$1) with lines lw 3 title "NVM",\
+'ADS1232.dat'           every::1 using 1:($2/$1) with lines lw 5 title "ADS1232REF, 40mV",\
+'AD7195.dat'            every::1 using 1:($2/$1) with lines lw 5 title "AD7195EBZ, 40mV",\
+'ADS1263.dat'           every::1 using 1:($2/$1) with lines lw 5 title "ADS1263, 80mV",\
+'ADS1263x7.dat'         every::1 using 1:($2/$1) with lines lw 5 title "7 || ADS1263, 80mV",\
+En*sqrt(1/x*60 /1000) lc rgb 'black' dt 2 notitle,\
 En*sqrt(1/x*1e3/1000) lc rgb 'black' dt 2 notitle,\
 En*sqrt(1/x*1e4/1000) lc rgb 'black' dt 2 notitle,\
 En*sqrt(1/x*1e5/1000) lc rgb 'black' dt 2 notitle
 
-set key opaque at 9,9e-2 box title "Amplifiers" 
+#'V7-54.dat' every::1 using 1:($2/$1) with lines lw 2 title "V7-54/2, 200mV",\
+
+set key opaque at 30,9e-2 box title "Amplifiers" 
 unset grid
 
 plot \
-'Ectron428-O.dat' every::1 using 1:($2/$1) with linespoints lw 1 title "Ectron 428-O",\
-'LT1028.dat' using 1:($2/$1) with linespoints lw 1 title "LT1024",\
-'SSM2212.dat' using 1:($2/$1) with linespoints lw 1 title "SSM2212",\
-'ADA4528.dat' using 1:($2/$1) with linespoints lw 1 title "ADA4528",\
-'ADA4528x10.dat' using 1:($2/$1) with linespoints lw 1 title "10 || ADA4528"
+'Ectron428-O.dat'       every::1 using 1:($2/$1) with linespoints lw 2 dt 4 title "Ectron 428-O",\
+'LT1028.dat'            every::1 using 1:($2/$1) with linespoints lw 2 dt 4 title "LT1024",\
+'SSM2212.dat'           every::1 using 1:($2/$1) with linespoints lw 2 dt 4 title "SSM2212",\
+'ADA4528.dat'           every::1 using 1:($2/$1) with linespoints lw 2 dt 4 title "ADA4528",\
+'ADA4528x10.dat'        every::1 using 1:($2/$1) with linespoints lw 2 dt 4 title "10 || ADA4528"
 
